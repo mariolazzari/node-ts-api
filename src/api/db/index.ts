@@ -30,12 +30,14 @@ const connectToMongoDb = async (): Promise<object> => {
   try {
     await connect(process.env.MONGO_URI!);
 
+    /*
     const post = new Post({
       content: "First post!",
       author: "author0",
     });
+    */
 
-    await post.save();
+    // await post.save();
     // console.log("post added")
     return { status: 200, msg: "OK - Connected" };
   } catch (err) {

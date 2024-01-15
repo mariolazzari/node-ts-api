@@ -28,23 +28,24 @@ app.get("/item/all", async (_req: Request, res: Response): Promise<void> => {
   try {
     const allItems = await db.collection("posts").find().toArray();
     res.json({ docs: allItems });
-  } catch (x) {
-    console.error(x);
-    res.json({ error: x });
+  } catch (error) {
+    console.error(error);
+    res.json({ error });
   }
 });
 
 app.get("/item/:id", async (req: Request, res: Response): Promise<void> => {
   const { id } = req.params;
+
   try {
-    const singleItem = await db
+    const result = await db
       .collection("posts")
       .find({ _id: new ObjectId(id) })
       .toArray();
-    res.json({ result: singleItem });
-  } catch (x) {
-    console.error(x);
-    res.json({ error: x });
+    res.json({ result });
+  } catch (error) {
+    console.error(error);
+    res.json({ error });
   }
 });
 

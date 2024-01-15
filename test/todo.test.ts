@@ -18,10 +18,10 @@ describe("API Endpoints Tests", (): void => {
     });
 
     test("GET route for single item", async (): Promise<void> => {
-      const id = '652872cbd3fecda5a683da70'
+      const id = "652872cbd3fecda5a683da70";
       const res = await request(app).get(`/item/${id}`);
 
-      expect(res.body.result[0].author).toEqual('author1');
+      expect(res.body.result[0].author).toEqual("author1");
     });
-  })
-})
+  });
+});
